@@ -3,6 +3,9 @@ import Page from "./Page";
 import Search from "./Search";
 import Table from "./Table";
 import Adddata from "./Adddata";
+import 'bootstrap/dist/css/bootstrap.css';
+
+
 import "./App.css"; // Import the CSS file for styling
 
 function App() {
