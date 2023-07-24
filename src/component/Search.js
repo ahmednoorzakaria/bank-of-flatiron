@@ -1,17 +1,17 @@
 import React from "react";
 
-function Search() {
+function Search({ handleSearch }) {
   return (
-    <div class="input-group rounded">
+    <div className="input-group rounded">
       <input
         type="search"
-        class="form-control rounded"
+        className="form-control rounded"
         placeholder="Search"
         aria-label="Search"
         aria-describedby="search-addon"
+        onChange={handleSearch}
       />
-      <span class="input-group-text border-0" id="search-addon">
-        <i class="fas fa-search"></i>
+      <span className="input-group-text border-0" id="search-addon">
       </span>
     </div>
   );
