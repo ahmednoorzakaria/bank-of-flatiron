@@ -1,71 +1,109 @@
-# Getting Started with Create React App
+# Bank of Flatiron
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Bank of Flatiron, where you can trust us with all your financial
+data! Use the below gif as an example of how the app should function.
 
-## Available Scripts
+## Instructions
 
-In the project directory, you can run:
+For this project, you’ll be building out a React application that displays a
+list of your recent bank transactions, among other features.
 
-### `npm start`
+## Setup
+1. Run `npm install` in your terminal.
+2. Run `npm run server`. This will run your backend on port `8001`.
+3. In a new terminal, run `npm start`. This will run your React app on port `8000`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Make sure to open
+[http://localhost:8001/transactions](http://localhost:8001/transactions) in the
+browser to verify that your backend is working before you proceed!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The app uses Bootsrap for styling. If you see any
+unfamiliar classNames on some components, don't sweat! That's coming from
+Semantic UI and you shouldn't need to touch it.
 
-### `npm test`
+If you are unfamiliar with HTML tables, take a look at the
+[docs with an example here](https://www.w3schools.com/html/html_tables.asp)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Core Deliverables
 
-### `npm run build`
+As a user, I should be able to:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- See a table of the transactions.
+- Fill out and submit the form to add a new transaction. This should add the new
+  transaction to the table **as well as post the new transaction to the backend
+  API for persistence**.
+- Filter transactions by typing into the search bar. Only transactions with a
+  description matching the search term should be shown in the transactions
+  table.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Endpoints for Core Deliverables
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### GET /transactions
 
-### `npm run eject`
+Example Response:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```json
+[
+  {
+    "id": 1,
+    "date": "2019-12-01",
+    "description": "Paycheck from Bob's Burgers",
+    "category": "Income",
+    "amount": 1000
+  },
+  {
+    "id": 2,
+    "date": "2019-12-01",
+    "description": "South by Southwest Quinoa Bowl at Fresh & Co",
+    "category": "Food",
+    "amount": -10.55
+  }
+]
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### POST `/transactions`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Required Headers:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```js
+{
+  "Content-Type": "application/json"
+}
+```
 
-## Learn More
+Request Object:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```json
+{
+  "date": "string",
+  "description": "string",
+  "category": "string",
+  "amount": number
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Example Response:
 
-### Code Splitting
+```json
+{
+  "id": 1,
+  "date": "2019-12-01",
+  "description": "Paycheck from Bob's Burgers",
+  "category": "Income",
+  "amount": 1000
+}
+```
+## Getting Started with Development
+To contribute to the Bank of Flatiron project, follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Fork the repository on GitHub.
+2. Create a new branch for your changes.
+3. Make your changes and commit them with descriptive messages.
+4. Push your changes to your forked repository.
+5. Submit a pull request to the original repository
 
-### Analyzing the Bundle Size
+## Contributing
+Contributions to the Bank of Flatiron project are welcome! If you encounter any issues or have ideas for improvements, feel free to open an issue or submit a pull request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# bank-of-flatiron
+## License
+The Bank of Flatiron project is open-source and available under the  License. Feel free to use, modify, and distribute the code according to the terms of the license.
