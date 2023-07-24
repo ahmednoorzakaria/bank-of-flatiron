@@ -2,7 +2,6 @@ import React from "react";
 import Page from "./Page";
 import Search from "./Search";
 import Table from "./Table";
-import Adddata from "./Adddata";
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -13,8 +12,6 @@ function App() {
     <div className="App">
       <Page />
       <Search />
-      <Adddata />
-      <Table />
     </div>
   );
 }
