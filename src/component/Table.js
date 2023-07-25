@@ -17,7 +17,7 @@ function Table({ data }) {
       <table className="table">
         {tableheader}
         <tbody>
-          {data?.map((transactions) => (
+          {data.map((transactions) => (
             <tr key={transactions.id}>
               <td>{transactions.id}</td>
               <td>{transactions.date}</td>
