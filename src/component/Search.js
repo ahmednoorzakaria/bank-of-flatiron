@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Table from "./Table";
 import Adddata from "./Adddata";
 
 function Search() {
   const [data, setData] = useState([]);
+  const [query, setquery] = useState("");
 
-  useEffect(() => {
-    fetch(" http://localhost:4000/transactions")
+  function handleSearch(e) {
+    setquery(e.target.value);
+    fetch("http://localhost:3000/transactions?q=" + query)
       .then((response) => response.json())
       .then((data) => setData(data))
       .catch((error) => console.error("Error fetching data:", error));
-  }, [data.id]);
+  }
+
   return (
     <div className="input-group rounded">
       <input
@@ -19,7 +22,12 @@ function Search() {
         placeholder="Search"
         aria-label="Search"
         aria-describedby="search-addon"
-        onChange={(e) => setData(e.target.value)}
+        onChange={handleSearch}
+        onKeyPress={(e) => {
+          if (e.key === "Enter") {
+            handleSearch(e);
+          }
+        }}
       />
       <span className="input-group-text border-0" id="search-addon"></span>
       <Adddata />
