@@ -12,6 +12,7 @@ function Table({ data }) {
       </tr>
     </thead>
   );
+
   return (
     <div className="table-responsive container">
       <table className="table">
@@ -24,6 +25,7 @@ function Table({ data }) {
               <td>{transactions.description}</td>
               <td>{transactions.category}</td>
               <td>{transactions.amount}</td>
+              <button>delete</button>
             </tr>
           ))}
         </tbody>

@@ -8,20 +8,10 @@ function Search() {
 
   // Fetch data based on the search query
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          "http://localhost:3000/transactions?q=" + query
-        );
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    fetchData();
-  }, [query]);
+    fetch("http://localhost:3000/transactions?q=" + query)
+      .then((r) => r.json())
+    .then((data)=>setData(data))
+  },[query])
 
   function handleSearch(e) {
     setQuery(e.target.value);
@@ -36,11 +26,6 @@ function Search() {
         aria-label="Search"
         aria-describedby="search-addon"
         onChange={handleSearch}
-        onKeyPress={(e) => {
-          if (e.key === "Enter") {
-            handleSearch(e);
-          }
-        }}
       />
       <span className="input-group-text border-0" id="search-addon"></span>
       <Adddata />
